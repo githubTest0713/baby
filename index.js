@@ -4,7 +4,17 @@ const multer = require("multer");
 const path = require("path");
 
 // Configure multer for file uploads
-const upload = multer({ dest: "uploads/" }); // Files will be uploaded to 'uploads' folder
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/"); // Directory where files will be saved
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Use original file name
+  },
+});
+
+const upload = multer({ storage: storage });
 
 // Initialize the Express app
 const app = express();
