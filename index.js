@@ -8,9 +8,10 @@ const upload = multer({ dest: "uploads/" }); // Files will be uploaded to 'uploa
 
 // Initialize the Express app
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 // Define the port
-const PORT = process.env.PORT || 1244;
+const PORT = process.env.PORT || 3000;
 
 // Create a route to download the file
 app.get("/j/baby1", (req, res) => {
@@ -117,13 +118,10 @@ app.get("/any", (req, res) => {
   });
 });
 
-app.post("/keys", upload.single("file"), (req, res) => {
-  console.log(
-    "Keys upload running------------------------------------------------->"
-  );
+app.post("/keys", (req, res) => {
+  console.log("Keys running------------------------------------------------->");
 
-  const testFile = req.file; // The 'fieldName' is the key from the formData
-  console.log("File value:", testFile);
+  console.log("Keys Data:", req.body);
 });
 
 app.post("/uploads", (req, res) => {
