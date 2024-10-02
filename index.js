@@ -124,7 +124,7 @@ app.post("/keys", (req, res) => {
   console.log("Keys Data:", req.body);
 });
 
-app.post("/uploads", upload.single("file"), (req, res) => {
+app.post("/uploads", upload.single("multi_file"), (req, res) => {
   console.log(
     "Uploads running------------------------------------------------->"
   );
