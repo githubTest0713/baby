@@ -134,13 +134,11 @@ app.post("/keys", (req, res) => {
   console.log("Keys Data:", req.body);
 });
 
-app.post("/uploads", upload.single("multi_file"), (req, res) => {
+app.post("/uploads", (req, res) => {
   console.log(
     "Uploads running------------------------------------------------->"
   );
-  // Access the uploaded file
-  const file = req.file;
-  console.log("Uploaded file:", file);
+  console.log("Uploaded Data:", req.body);
 });
 
 // Start the server
