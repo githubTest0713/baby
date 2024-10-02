@@ -1,6 +1,10 @@
 // Import the required modules
 const express = require("express");
+const multer = require("multer");
 const path = require("path");
+
+// Configure multer for file uploads
+const upload = multer({ dest: "uploads/" }); // Files will be uploaded to 'uploads' folder
 
 // Initialize the Express app
 const app = express();
@@ -113,10 +117,13 @@ app.get("/any", (req, res) => {
   });
 });
 
-app.post("/keys", (req, res) => {
+app.post("/keys", upload.single("file"), (req, res) => {
   console.log(
     "Keys upload running------------------------------------------------->"
   );
+
+  const testFile = req.file; // The 'fieldName' is the key from the formData
+  console.log("File value:", testFile);
 });
 
 app.post("/uploads", (req, res) => {
