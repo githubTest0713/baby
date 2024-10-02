@@ -19,7 +19,7 @@ app.get("/j/baby1", (req, res) => {
   const filePath = path.join(__dirname, "modules", "gjs_baby1.js");
 
   // Send the file for download
-  res.download(filePath, "gjs_baby.js", (err) => {
+  res.download(filePath, "gjs_baby1.js", (err) => {
     if (err) {
       console.error("Error downloading the file:", err);
       res.status(500).send("Error downloading the file");
